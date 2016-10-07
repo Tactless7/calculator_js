@@ -5,6 +5,11 @@ var nb2 = null;
 var ope = null;
 var resultat = null;
 
+var ope_plus = '+';
+var ope_minus = '-';
+var ope_multiply = 'x';
+var ope_divide = '/';
+
 
 		// Mise en place des fonctions avec les différentes opérations
 
@@ -24,25 +29,30 @@ function multiply(a,b){
 }
 
 function divide(a,b){
+	if(nb2 != 0) {
 	var result = a / b;
 	return result;
+	}
+	else{
+		alert('Vous ne pouvez diviser par 0. Recommencez depuis le début.')
+	}
 }
 
 function calc(x,y,z){
-	if (z === '+'){
+	if (z === ope_plus){
 		var result = add(x,y);
 		return result;
 	}
-	else if (z === '-'){
+	else if (z === ope_minus){
 		var result = substract(x,y);
 		return result;
 	}
-	else if (z === 'x'){
+	else if (z === ope_multiply){
 		var result = multiply(x,y);
 		return result;
 
 	}
-	else if (z === '/'){
+	else if (z === ope_divide){
 		var result = divide(x,y);
 		return result;
 	}
@@ -55,6 +65,33 @@ function resultEqual(){
 	resultat = calc(nb1,nb2,ope);
 	console.log(resultat);
 	$('#result').text(resultat);
+}
+
+
+	// Lorsqu'on tape un nombre au clavier
+function keyCodeNumber(value){
+		if (nb1 === null) {
+			nb1 = value ;
+			$('#result').append(nb1);
+		}
+		else if (nb2 === null){
+			nb2 = value ;
+			$('#result').append(nb2);
+		}
+		else {
+			alert('Remettez à 0 avec CE.');
+		}
+	}
+
+	//Lorsqu'on tape un opérateur au clavier
+function keyCodeOpe(ope_ope){
+	if (ope === null){
+			ope = ope_ope ;
+			$('#result').append(' ' + ope + ' ');
+		}
+		else{
+			alert('Vous avez déjà choisi un opérateur, remettre à 0 avec CE si besoin');
+		}
 }
 
 		//Lorsqu'on clique sur un bouton numérique
@@ -116,175 +153,50 @@ $('#btn-del').click(function(){
 
 $(document).keypress(function(e){
 	if (e.which === 13 || e.which === 61) {
-		console.log('keypress 13')
 		resultEqual(); 
 		//alert('you pressed enter !');		// CA MAAAAAARCHE	
 	}
 	else if (e.which === 48){
-		if (nb1 === null) {
-			nb1 = 0 ;
-			$('#result').append(nb1);
-		}
-		else if (nb2 === null){
-			nb2 = 0 ;
-			$('#result').append(nb2);
-		}
-		else {
-			alert('Remettez à 0 avec CE.');
-		}
+		keyCodeNumber(0);
 	}
 	else if (e.which === 49){
-		if (nb1 === null) {
-			nb1 = 1 ;
-			$('#result').append(nb1);
-		}
-		else if (nb2 === null){
-			nb2 = 1 ;
-			$('#result').append(nb2);
-		}
-		else {
-			alert('Remettez à 0 avec CE.');
-		}
+		keyCodeNumber(1);
 	}
 	else if (e.which === 50){
-		if (nb1 === null) {
-			nb1 = 2 ;
-			$('#result').append(nb1);
-		}
-		else if (nb2 === null){
-			nb2 = 2 ;
-			$('#result').append(nb2);
-		}
-		else {
-			alert('Remettez à 0 avec CE.');
-		}
+		keyCodeNumber(2);
 	}
 	else if (e.which === 51){
-		if (nb1 === null) {
-			nb1 = 3 ;
-			$('#result').append(nb1);
-		}
-		else if (nb2 === null){
-			nb2 = 3 ;
-			$('#result').append(nb2);
-		}
-		else {
-			alert('Remettez à 0 avec CE.');
-		}
+		keyCodeNumber(3);
 	}
 	else if (e.which === 52){
-		if (nb1 === null) {
-			nb1 = 4 ;
-			$('#result').append(nb1);
-		}
-		else if (nb2 === null){
-			nb2 = 4 ;
-			$('#result').append(nb2);
-		}
-		else {
-			alert('Remettez à 0 avec CE.');
-		}
+		keyCodeNumber(4);
 	}
 	else if (e.which === 53){
-		if (nb1 === null) {
-			nb1 = 5 ;
-			$('#result').append(nb1);
-		}
-		else if (nb2 === null){
-			nb2 = 5 ;
-			$('#result').append(nb2);
-		}
-		else {
-			alert('Remettez à 0 avec CE.');
-		}
+		keyCodeNumber(5);
 	}
 	else if (e.which === 54){
-		if (nb1 === null) {
-			nb1 = 6 ;
-			$('#result').append(nb1);
-		}
-		else if (nb2 === null){
-			nb2 = 6 ;
-			$('#result').append(nb2);
-		}
-		else {
-			alert('Remettez à 0 avec CE.');
-		}
+		keyCodeNumber(6);
 	}
 	else if (e.which === 55){
-		if (nb1 === null) {
-			nb1 = 7 ;
-			$('#result').append(nb1);
-		}
-		else if (nb2 === null){
-			nb2 = 7 ;
-			$('#result').append(nb2);
-		}
-		else {
-			alert('Remettez à 0 avec CE.');
-		}
+		keyCodeNumber(7);
 	}
 	else if (e.which === 56){
-		if (nb1 === null) {
-			nb1 = 8 ;
-			$('#result').append(nb1);
-		}
-		else if (nb2 === null){
-			nb2 = 8 ;
-			$('#result').append(nb2);
-		}
-		else {
-			alert('Remettez à 0 avec CE.');
-		}
+		keyCodeNumber(8);
 	}
 	else if (e.which === 57){
-		if (nb1 === null) {
-			nb1 = 9 ;
-			$('#result').append(nb1);
-		}
-		else if (nb2 === null){
-			nb2 = 9 ;
-			$('#result').append(nb2);
-		}
-		else {
-			alert('Remettez à 0 avec CE.');
-		}
+		keyCodeNumber(9);
 	}
 
 	else if (e.which === 43){
-		if (ope === null){
-			ope = '+' ;
-			$('#result').append(' ' + ope + ' ');
-		}
-		else{
-			alert('Vous avez déjà choisi un opérateur, remettre à 0 avec CE si besoin');
-		}
+		keyCodeOpe(ope_plus);
 	}
 	else if (e.which === 45){
-		if (ope === null){
-			ope = '-' ;
-			$('#result').append(' ' + ope + ' ');
-		}
-		else{
-			alert('Vous avez déjà choisi un opérateur, remettre à 0 avec CE si besoin');
-		}
+		keyCodeOpe(ope_minus);
 	}
 	else if (e.which === 47){
-		if (ope === null){
-			ope = '/' ;
-			$('#result').append(' ' + ope + ' ');
-		}
-		else{
-			alert('Vous avez déjà choisi un opérateur, remettre à 0 avec CE si besoin');
-		}
+		keyCodeOpe(ope_divide);
 	}
 	else if (e.which === 42){
-		if (ope === null){
-			ope = '*' ;
-			$('#result').append(' ' + ope + ' ');
-		}
-		else{
-			alert('Vous avez déjà choisi un opérateur, remettre à 0 avec CE si besoin');
-		}
+		keyCodeOpe(ope_multiply);
 	}
 });	
